@@ -95,8 +95,7 @@ class ProductsController extends Controller
       'category_id' => $request['category_id'],
     ]);
 
-    $total = fake()->numberBetween(1,50);
-
+    $total = random_int(1,50);
 
    $sales = Sale::create([
       'quantity' => $total,
