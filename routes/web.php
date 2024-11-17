@@ -63,7 +63,7 @@ Route::get('/sales', [SalesController::class, 'view'])
     ->middleware(['auth'])
     ->name('sales');
 
-
+URL::forceScheme('https');
 
 
 require __DIR__ . '/auth.php';
