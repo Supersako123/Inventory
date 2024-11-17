@@ -15,24 +15,56 @@ class DashboardController extends Controller
 
   public function view(Request $request): View
   {
-    $highestSelling = Products::select('products.*', \DB::raw('SUM(sales.total) as total_sales'))
+    $highestSelling = Products::select(
+      'products.id',
+      'products.name',
+      'products.buying_price',
+      'products.selling_price',
+      'products.quantity',
+      'products.created_at',
+      \DB::raw('SUM(sales.total) as total_sales')
+    )
       ->join('sales', 'products.id', '=', 'sales.products_id')
       ->where('products.group_id', $request->user()->group_id)
-      ->groupBy('products.id')
+      ->groupBy(
+        'products.id',
+        'products.name',
+        'products.buying_price',
+        'products.selling_price',
+        'products.quantity',
+        'products.created_at'
+      )
       ->orderByDesc('total_sales')
       ->limit(8)
       ->get()
       ->toArray();
 
 
-      $latestSales = Products::select('products.*', \DB::raw('SUM(sales.total) as total_sales'))
+
+    $latestSales = Products::select(
+      'products.id',
+      'products.name',
+      'products.buying_price',
+      'products.selling_price',
+      'products.quantity',
+      'products.created_at',
+      \DB::raw('SUM(sales.total) as total_sales')
+    )
       ->join('sales', 'products.id', '=', 'sales.products_id')
       ->where('products.group_id', $request->user()->group_id)
-      ->groupBy('products.id')
+      ->groupBy(
+        'products.id',
+        'products.name',
+        'products.buying_price',
+        'products.selling_price',
+        'products.quantity',
+        'products.created_at'
+      )
       ->orderByDesc(\DB::raw('MAX(sales.created_at)'))
       ->limit(8)
       ->get()
       ->toArray();
+
 
     $recentlyAdded = Products::where('group_id', $request->user()->group_id)
       ->orderBy('created_at', 'desc')

@@ -84,6 +84,8 @@ class ProductsController extends Controller
   
     $user = $request->user();
     
+  
+
     $product = Products::create([
       'name' => $request['name'],
       'quantity' => $request['quantity'],
