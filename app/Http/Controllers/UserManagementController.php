@@ -39,7 +39,7 @@ class UserManagementController extends Controller
       return view('403');
     }
 
-    return view('users/addorEdit', ['action' => 'add']);
+    return view('users/addOrEdit', ['action' => 'add']);
   }
 
   public function patch(Request $request)
@@ -99,7 +99,7 @@ class UserManagementController extends Controller
       $user->password = '';
     }
 
-    return view('users/addorEdit', ['action' => 'edit', 'user' => $user]);
+    return view('users/addOrEdit', ['action' => 'edit', 'user' => $user]);
   }
 
 
