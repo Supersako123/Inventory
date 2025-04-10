@@ -1,1 +1,3 @@
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/MmK98rmvi7M/0.jpg)](https://www.youtube.com/watch?v=MmK98rmvi7M)
+Application demo video
+
+https://github.com/user-attachments/assets/6a319e17-1714-4f01-a0a5-37384cd70e7d
