@@ -8,7 +8,6 @@ This project is a simple and efficient inventory management system designed to h
 - Real-time stock level updates
 - Item search and filter functionality
 - Categorization and sorting
-- Basic reporting or export options (if applicable)
 - Responsive and user-friendly interface
 
 
